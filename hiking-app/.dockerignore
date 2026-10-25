@@ -1,0 +1,10 @@
+### Example user template template
+### Example user template
+
+# IntelliJ project files
+generator
+.idea
+*.iml
+out
+gen
+sql

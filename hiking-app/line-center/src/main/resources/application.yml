@@ -1,0 +1,31 @@
+server:
+  port: 8082
+
+spring:
+  application:
+    name: line-center
+  profiles:
+    active: dev
+  config:
+    import:
+      - optional:classpath:common.yml
+      - optional:nacos:common.yml?refreshEnabled=true
+      - optional:classpath:${spring.application.name}-${spring.profiles.active}.yml
+      - optional:nacos:${spring.application.name}-${spring.profiles.active}.yml?refreshEnabled=true
+  cloud:
+    nacos:
+      server-addr: localhost:8848
+      discovery:
+        service: ${spring.application.name}
+        namespace: "public"
+        group: DEFAULT_GROUP
+        username: nacos
+        password: nacos
+      config:
+        namespace: "public"
+        group: DEFAULT_GROUP
+        refresh-enabled: true
+        username: nacos
+        password: nacos
+logging:
+  config: classpath:hiking-logback-spring.xml

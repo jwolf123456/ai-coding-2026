@@ -1,0 +1,9 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/hiking_user?useSSL=false&serverTimezone=UTC&characterEncoding=utf8&allowPublicKeyRetrieval=true
+
+arthas:
+  mcpEndpoint: /mcp
+  mcpProtocol: STREAMABLE
+  httpPort: 8561
+  telnetPort: 3651
