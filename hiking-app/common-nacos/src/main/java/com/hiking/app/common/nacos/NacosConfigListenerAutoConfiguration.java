@@ -51,8 +51,9 @@ public class NacosConfigListenerAutoConfiguration {
     public NacosConfigInitializer nacosConfigInitializer(
             ConfigService configService,
             @Value("${spring.cloud.nacos.config.group:DEFAULT_GROUP}") String group,
-            @Value("${spring.cloud.nacos.config.namespace:public}") String namespace
+            @Value("${spring.cloud.nacos.config.namespace:public}") String namespace,
+            @Value("${hiking.nacos.config.push-only-absent:true}") boolean pushIfAbsent
     ) {
-        return new NacosConfigInitializer(configService, group, namespace);
+        return new NacosConfigInitializer(configService, group, namespace, pushIfAbsent);
     }
 }

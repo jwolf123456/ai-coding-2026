@@ -29,3 +29,9 @@ spring:
         password: nacos
 logging:
   config: classpath:hiking-logback-spring.xml
+
+# 仅首次发布配置
+hiking:
+  nacos:
+    config:
+      push-only-absent: true
